@@ -35,6 +35,18 @@ def text2(request):
 
     return render(request,"download.html")
 
+def register(request):
+    form = UserCreationForm
+    if request.method == "POST":
+        regForm = UserCreationForm(request.POST)
+        if regForm.is_valid():
+            regForm.save()
+            
+            messages.success(request, "User has been Registered")
+            return redirect('home')
+    return render(request, 'registration/register.html', {'form': form})
+
+
 
 
 
