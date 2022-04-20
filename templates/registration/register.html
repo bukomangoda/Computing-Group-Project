@@ -48,9 +48,9 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="">Home</a></li>
-          <li><a class="nav-link scrollto" href="about.html">About</a></li>
+          <li><a class="nav-link scrollto" href="/about">About</a></li>
          
-          <li><a class="nav-link scrollto" href="contact.html">Contact</a></li>
+          <li><a class="nav-link scrollto" href="/contact">Contact</a></li>
 
           {% if user.is_authenticated %}
 
@@ -80,7 +80,7 @@
 
 
 
-        <form method="post">
+        <form  method="POST" action="">
           <table class="table table-bordered">
             {% csrf_token %}
             {{form.as_table}}

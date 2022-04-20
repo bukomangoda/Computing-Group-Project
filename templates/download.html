@@ -48,9 +48,9 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="">Home</a></li>
-          <li><a class="nav-link scrollto" href="about.html">About</a></li>
+          <li><a class="nav-link scrollto" href="/about">About</a></li>
          
-          <li><a class="nav-link scrollto" href="contact.html">Contact</a></li>
+          <li><a class="nav-link scrollto" href="/contact">Contact</a></li>
 
           {% if user.is_authenticated %}
 
@@ -86,6 +86,8 @@
           {% post_to_facebook 'static/files/01.pdf' '<i class="fab fa-facebook">Share to Facebook</i>' %}
           <br>
           {% post_to_linkedin 'static/files/01.pdf' "<button class='btn btn-lg btn-success' style='width: 100%;'>Share to Mail</button>" %}
+<br>
+          {% post_to_whatsapp 'static/files/01.pdf' "Share via WhatsApp" %}
 
 
 

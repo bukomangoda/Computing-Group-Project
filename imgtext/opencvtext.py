@@ -1,5 +1,7 @@
 def openCv():
     import cv2
+    from cv2 import VideoCapture
+    from cv2 import waitKey
     from PIL import Image
 
     cam = cv2.VideoCapture(0)
@@ -37,8 +39,10 @@ def openCv():
     pdf = FPDF()
     pdf.add_page()
     pdf.set_font('Arial', 'B', 16)
+    pdf.set_left_margin(32)
+    pdf.set_right_margin(32)
     pdf.cell(40, 10, text)
-    pdf.output('./static/files/01.pdf', 'F')
+    file = pdf.output('./static/files/01.pdf', 'F')
 
     print(text)
     return text

@@ -47,13 +47,18 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="">Home</a></li>
-          <li><a class="nav-link scrollto" href="about.html">About</a></li>
+          <li><a class="nav-link scrollto" href="/about">About</a></li>
          
-          <li><a class="nav-link scrollto" href="contact.html">Contact</a></li>
+          <li><a class="nav-link scrollto" href="/contact">Contact</a></li>
 
           {% if user.is_authenticated %}
 
           <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+          <li class="dropdown"><a href="#"><span>Hi,  {{username}}</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="/password">Change Password</a></li>
+            <ul>
+          </li>
           
           {% else %}
           <li><a class="nav-link scrollto" href="{% url 'login' %}">Login</a></li>
@@ -77,6 +82,7 @@
       <br><br>
       <div class="row">
 
+        {% if user.is_authenticated %}
 
 
         <form action="" method="post" enctype="multipart/form-data">
@@ -98,14 +104,17 @@
           {% endif %} ======= -->
 
             
-
-
           <a href="/openC" class="btn-get-started scrollto">Scan Camera</a>
-          
+
+          {% else %}
+          <h2>Login or Register to Img2Text</h2>
+          <a class="btn-get-started scrollto" href="{% url 'login' %}">Login</a>
+          <a class="btn-get-started scrollto" href="{% url 'register' %}">Register</a>
+
+          {% endif %}
 
       </div>
-      
-      <img src="{% static 'img/hero-img.png' %}" class="img-fluid hero-img" alt="" data-aos="zoom-in" data-aos-delay="150">
+    
     </div>
 
   </section>
